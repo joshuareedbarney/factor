@@ -10,19 +10,19 @@
 #include <stdlib.h>
 #include <math.h>
 
-const int ARRAY_SIZE = 100;
+const int ARRAY_SIZE = 1000;
 
-void factor(int n, int* arr) {
+void factor(unsigned long long n, unsigned long long* arr) {
 	if (n <= 0) {
 		return;
 	}
 
 	int index = 0;
-	int sqrtOfN = sqrt(n) + 1;
+	unsigned long long sqrtOfN = sqrt(n) + 1;
 	
 	while (n != 1)
 	{
-		int i = 2;
+		unsigned long long i = 2;
 		while (n % i != 0) {
 			i++;
 			if (i > sqrtOfN) {
@@ -48,11 +48,11 @@ int main(int argc, char * argv[]) {
 		return 0;
 	}
 
-	int n = atoi(argv[1]);
-	int arr[ARRAY_SIZE];
+	unsigned long long n = strtoull(argv[1], NULL, 10);
+	unsigned long long arr[ARRAY_SIZE];
 
-	if (n <= 0) {
-		printf("%d: \n", n);
+	if (n == -1 || n <= 0) {
+		printf("%llu: \n", n);
 		return 0;
 	}
 
@@ -67,11 +67,11 @@ int main(int argc, char * argv[]) {
 	factor(n, arr);
 
 	int index = 0;
-	printf("%d:", n);
+	printf("%llu:", n);
 
 	while (index <= ARRAY_SIZE && arr[index] != -1)
 	{
-		printf(" %d", arr[index]);
+		printf(" %llu", arr[index]);
 		index++;
 	}
 	
