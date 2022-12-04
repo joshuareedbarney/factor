@@ -23,7 +23,7 @@ def factor(n):
                 return arr
             i += 1
         arr.append(int(i))
-        n /= i
+        n //= int(i)
         sqrtOfN = math.sqrt(n) + 1
     
     return arr
